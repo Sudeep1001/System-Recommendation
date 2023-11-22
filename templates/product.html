@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Recommendation System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        margin-bottom: 80px; /* Height of the footer */
+        position: relative;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 80px; /* Height of the footer */
+        background-color: #f5f5f5;
+      }
+      .ratings {
+        margin-top: 10px;
+      }
+      .bi-star-fill {
+        color: gold; /* Change color for filled stars */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Product Recommmendation System </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/product">Product</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Main content of the page -->
+    <div class="container mb-5">
+      <!-- Product cards -->
+      <div class="row">
+        <!-- First card -->
+        <div class="col-md-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Product Title 1</h5>
+              <p class="card-text">Product description goes here.</p>
+              <div class="ratings" data-rating="0">
+                <p>Rate this product:</p>
+                <div class="stars">
+                  <!-- Stars for rating the product -->
+                  <!-- Example: -->
+                  <i class="bi bi-star bi-star-outline" data-index="1"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="2"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="3"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="4"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="5"></i>
+                </div>
+              </div>
+              <form action="/submit-review" method="POST">
+                <div class="mb-3">
+                  <label for="review1">Write a review:</label>
+                  <textarea
+                    class="form-control"
+                    id="review1"
+                    name="review"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Submit Review
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second card -->
+        <div class="col-md-6">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Product Title 2</h5>
+              <p class="card-text">Product description goes here.</p>
+              <div class="ratings" data-rating="0">
+                <p>Rate this product:</p>
+                <div class="stars">
+                  <!-- Stars for rating the product -->
+                  <!-- Example: -->
+                  <i class="bi bi-star bi-star-outline" data-index="1"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="2"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="3"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="4"></i>
+                  <i class="bi bi-star bi-star-outline" data-index="5"></i>
+                </div>
+              </div>
+              <form action="/submit-review" method="POST">
+                <div class="mb-3">
+                  <label for="review2">Write a review:</label>
+                  <textarea
+                    class="form-control"
+                    id="review2"
+                    name="review"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Submit Review
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Add more cards as needed -->
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Social media icons -->
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#"><i class="bi bi-twitter"></i></a>
+              </li>
+              <!-- Add more social media icons -->
+            </ul>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <!-- Copyright information -->
+            <p class="mb-0">&copy; 2023 Ramesh Shrestha. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // JavaScript logic for the rating system
+      const stars = document.querySelectorAll(".stars");
+
+      stars.forEach((starSet) => {
+        starSet.addEventListener("click", (e) => {
+          const starIndex = e.target.dataset.index;
+          const rating = starSet.getAttribute("data-rating");
+
+          if (starIndex && rating !== starIndex) {
+            starSet.setAttribute("data-rating", starIndex);
+
+            // Reset all stars
+            starSet.querySelectorAll(".bi-star").forEach((star) => {
+              star.classList.remove("bi-star-fill");
+              star.classList.add("bi-star-outline");
+            });
+
+            // Fill the clicked stars and previous stars
+            for (let i = 1; i <= starIndex; i++) {
+              starSet
+                .querySelector(`[data-index="${i}"]`)
+                .classList.remove("bi-star-outline");
+              starSet
+                .querySelector(`[data-index="${i}"]`)
+                .classList.add("bi-star-fill");
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
